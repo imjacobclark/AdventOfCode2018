@@ -5,57 +5,58 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ResultingFrequencyTest {
     @Test
-    public void shouldCalculateASinglePositiveInteger() {
-        ArrayList<String> frequencies = new ArrayList<>();
+    public void shouldCalculateForASinglePositiveInteger() {
+        List<String> frequencies = new ArrayList<>();
         frequencies.add("+100");
 
         ResultingFrequency resultingFrequency = new ResultingFrequency(frequencies);
         int frequency = resultingFrequency.calculateResultingFrequency();
 
-        assertEquals(frequency, 100);
+        assertEquals(100, frequency);
     }
 
     @Test
     public void shouldCalculateForASingleNegativeInteger() {
-        ArrayList<String> frequencies = new ArrayList<>();
+        List<String> frequencies = new ArrayList<>();
         frequencies.add("-100");
 
         ResultingFrequency resultingFrequency = new ResultingFrequency(frequencies);
         int frequency = resultingFrequency.calculateResultingFrequency();
 
-        assertEquals(frequency, -100);
+        assertEquals(-100, frequency);
     }
 
     @Test
     public void shouldCalculateForMultiplePositiveIntegers() {
-        ArrayList<String> frequencies = new ArrayList<>();
+        List<String> frequencies = new ArrayList<>();
         frequencies.add("+50");
         frequencies.add("+50");
 
         ResultingFrequency resultingFrequency = new ResultingFrequency(frequencies);
         int frequency = resultingFrequency.calculateResultingFrequency();
 
-        assertEquals(frequency, 100);
+        assertEquals(100, frequency);
     }
 
     @Test
     public void shouldCalculateForMultipleNegativeIntegers() {
-        ArrayList<String> frequencies = new ArrayList<>();
+        List<String> frequencies = new ArrayList<>();
         frequencies.add("-50");
         frequencies.add("-50");
 
         ResultingFrequency resultingFrequency = new ResultingFrequency(frequencies);
         int frequency = resultingFrequency.calculateResultingFrequency();
 
-        assertEquals(frequency, -100);
+        assertEquals(-100, frequency);
     }
 
     @Test
     public void shouldCalculateForMultiplePositiveAndNegativeIntegers() {
-        ArrayList<String> frequencies = new ArrayList<>();
+        List<String> frequencies = new ArrayList<>();
         frequencies.add("-50");
         frequencies.add("-50");
         frequencies.add("+50");
@@ -64,6 +65,6 @@ public class ResultingFrequencyTest {
         ResultingFrequency resultingFrequency = new ResultingFrequency(frequencies);
         int frequency = resultingFrequency.calculateResultingFrequency();
 
-        assertEquals(frequency, -49);
+        assertEquals(-49, frequency);
     }
 }
