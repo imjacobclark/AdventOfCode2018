@@ -28,20 +28,6 @@ public class Boxes {
         return this.twoLetterChecksumPart * this.threeLetterChecksumPart;
     }
 
-    private Map<String, Integer> countLetterOccurrences(Box box) {
-        Map<String, Integer> letterCounts = new HashMap<>();
-
-        asList(box.getId().split("")).forEach(letter -> {
-            if (letterCounts.get(letter) == null) {
-                letterCounts.put(letter, 0);
-            }
-
-            letterCounts.put(letter, letterCounts.get(letter) + 1);
-        });
-
-        return letterCounts;
-    }
-
     public Box findFabricBox() {
         int numberOfboxIdsToCheck = this.boxes.size();
         List<String> matchedLetters = new ArrayList<>();
@@ -57,7 +43,7 @@ public class Boxes {
         int currentBoxToCheckIndex = 1;
 
         while (true) {
-            if(currentBoxIndex >= numberOfboxIdsToCheck) {
+            if (currentBoxIndex >= numberOfboxIdsToCheck) {
                 return null;
             }
 
@@ -89,6 +75,20 @@ public class Boxes {
                 currentBoxToCheckIndex = 0;
             }
         }
+    }
+
+    private Map<String, Integer> countLetterOccurrences(Box box) {
+        Map<String, Integer> letterCounts = new HashMap<>();
+
+        asList(box.getId().split("")).forEach(letter -> {
+            if (letterCounts.get(letter) == null) {
+                letterCounts.put(letter, 0);
+            }
+
+            letterCounts.put(letter, letterCounts.get(letter) + 1);
+        });
+
+        return letterCounts;
     }
 
     private String[] getBoxIdLetters(int currentBoxIndex) {
