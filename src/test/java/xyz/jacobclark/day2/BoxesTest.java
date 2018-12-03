@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-public class ChecksumCalculatorTest {
+public class BoxesTest {
     @Test
     public void shouldReturn0WhenNoInputIsProvided() throws Exception {
         List<Box> boxes = new ArrayList<>();
