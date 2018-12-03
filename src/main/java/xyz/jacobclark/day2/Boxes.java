@@ -33,7 +33,8 @@ public class Boxes {
         List<String> matchedLetters = new ArrayList<>();
         List<String> missmatchedLetters = new ArrayList<>();
 
-        if (numberOfboxIdsToCheck <= 1 || boxIdsAreNotAllOfSameLength()) {
+        boolean notEnoughBoxesToCheckAgainst = numberOfboxIdsToCheck <= 1;
+        if (notEnoughBoxesToCheckAgainst || boxIdsAreNotAllOfSameLength()) {
             return null;
         }
 
@@ -43,7 +44,8 @@ public class Boxes {
         int currentBoxToCheckIndex = 1;
 
         while (true) {
-            if (currentBoxIndex >= numberOfboxIdsToCheck) {
+            boolean noMatchingIdFound = currentBoxIndex >= numberOfboxIdsToCheck;
+            if (noMatchingIdFound) {
                 return null;
             }
 
@@ -60,7 +62,8 @@ public class Boxes {
                 }
             }
 
-            if (missmatchedLetters.size() == 1) {
+            boolean matchedIdFound = missmatchedLetters.size() == 1;
+            if (matchedIdFound) {
                 String fabricBoxId = getMatchedLettersAsString(matchedLetters).get();
                 return new Box(fabricBoxId);
             }
